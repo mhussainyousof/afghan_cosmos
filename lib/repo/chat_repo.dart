@@ -100,20 +100,9 @@ Future sendTextMessage({
   }
 }
 
-  //! گرفتن پیام‌های اخیر چت
-  Future<List<Message>> _getRecentMessages(String userId, {int limit = 10}) async {
-    final snapshot = await _firestore
-        .collection('conversations')
-        .doc(userId)
-        .collection('messages')
-        .orderBy('createdAt', descending: true)
-        .limit(limit)
-        .get();
 
-    return snapshot.docs.map((doc) => Message.fromMap(doc.data())).toList().reversed.toList();
-  }
 
-  //! گرفتن صفحات مرتبط از Firestore
+
  Future<List<Map<String, dynamic>>> _getRelevantSitePages(String query, {int limit = 3}) async {
   final snapshot = await _firestore
       .collection("afghancosmos_data")
@@ -142,7 +131,7 @@ Future sendTextMessage({
 }
 
 
-  //! تابع ساده تشخیص شباهت (تعداد کلمات مشترک)
+
   int _similarity(String a, String b) {
     final aWords = a.split(' ').toSet();
     final bWords = b.split(' ').toSet();
