@@ -86,29 +86,6 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Consumer(
-                  builder: (context, ref, child) {
-                    return Row(
-                      children: [
-                        const Text(
-                          "Let's Talk 🐦‍🔥 ",
-                          style: TextStyle(fontSize: 20),
-                        ),
-                        const Spacer(),
-                        const Text('Logout'),
-                        IconButton(
-                          onPressed: () {
-                            ref.read(authProvider).signout(ref);
-                          },
-                          icon: const Icon(Iconsax.logout),
-                        ),
-                      ],
-                    );
-                  },
-                ),
-
-              
-
                 // Message List
                 Expanded(
                   child: MessagesList(
