@@ -1,11 +1,8 @@
-import 'package:afghan_cosmos/cloudaniry/data/fire_base_storage_repo.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/foundation.dart' show immutable;
 import 'package:google_generative_ai/google_generative_ai.dart';
-import 'package:image_picker/image_picker.dart';
 import 'package:uuid/uuid.dart';
-import '/extensions/extensions.dart';
 import '/models/message.dart';
 
 
@@ -46,11 +43,11 @@ Future sendTextMessage({
         .doc(sentMessageId)
         .set(message.toMap());
 
-    // گرفتن صفحات سایت از فایراستور (کل محتواهای مرتبط)
+
     final sitePages = await _getRelevantSitePages(textPrompt, limit: 5);
 
     if (sitePages.isEmpty) {
-      // اگر داده‌ای نداریم، مستقیم جواب پیش‌فرض بفرست
+   
       final noDataResponse = "متاسفم، اطلاعات مرتبطی در دسترس نیست.";
       final receivedMessageId = const Uuid().v4();
 
@@ -71,22 +68,19 @@ Future sendTextMessage({
       return;
     }
 
-    // ساختن یک متن واحد و کامل از محتواهای مرتبط
     final combinedContent = sitePages.map((doc) => "عنوان: ${doc['title']}\nمحتوا: ${doc['content']}").join("\n\n---\n\n");
 
-    // ساختن محتوا برای مدل فقط با متن سایت و پرسش کاربر
+
     final content = [
       Content.text(combinedContent),
       Content.text("سوال: $textPrompt"),
     ];
 
-    // فرستادن به Gemini
     final response = await textModel.generateContent(content);
     final responseText = response.text ?? '';
 
     final receivedMessageId = const Uuid().v4();
 
-    // ذخیره پاسخ مدل
     final responseMessage = Message(
       id: receivedMessageId,
       message: responseText,
@@ -125,12 +119,12 @@ Future sendTextMessage({
       .collection("afghancosmos_data")
       .doc("pages")
       .collection("items")
-      .limit(100) // بیشتر بگیر
+      .limit(100) 
       .get();
 
   final docs = snapshot.docs.map((doc) => doc.data()).toList();
 
-  // مرتب سازی بر اساس شباهت به عنوان و محتوا
+
   docs.sort((a, b) {
     final aScoreTitle = _similarity(query.toLowerCase(), a['title'].toString().toLowerCase());
     final bScoreTitle = _similarity(query.toLowerCase(), b['title'].toString().toLowerCase());

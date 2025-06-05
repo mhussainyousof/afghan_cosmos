@@ -1,17 +1,12 @@
-import 'dart:io';
-
 import 'package:afghan_cosmos/provider/providers.dart';
-import 'package:afghan_cosmos/services/scrape.dart';
-import 'package:afghan_cosmos/utils/image_picker.dart';
 import 'package:afghan_cosmos/widgets/widget_messages_list.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-
 import 'package:iconsax/iconsax.dart';
-import 'package:image_picker/image_picker.dart';
+
 
 class HomeScreen extends ConsumerStatefulWidget {
   const HomeScreen({super.key});
