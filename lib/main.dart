@@ -1,4 +1,5 @@
 import 'package:afghan_cosmos/firebase_options.dart';
+import 'package:afghan_cosmos/repo/auth_repo.dart';
 import 'package:afghan_cosmos/screens/home_screen.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -13,6 +14,9 @@ void main() async {
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
+
+    final auth = AuthRepository();
+  await auth.signInAnonymously(); 
   runApp(
     const ProviderScope(
       child: MyApp(),
@@ -34,21 +38,7 @@ class MyApp extends StatelessWidget {
     ),
   ),
       debugShowCheckedModeBanner: false,
-      home: StreamBuilder(
-        stream: FirebaseAuth.instance.userChanges(),
-        builder: (context, snapshot) {
-          if (snapshot.connectionState == ConnectionState.waiting) {
-            return const Center(
-              child: CircularProgressIndicator(),
-            );
-          }
-
-          if (snapshot.data == null) {
-            return const LoginScreen();
-          }
-           return const HomeScreen();
-        },
-      ),  
+      home: HomeScreen()
     );
   }
 }

@@ -19,7 +19,6 @@ dependencies:
   cloud_firestore: ^4.15.9
   firebase_storage: ^11.6.10
   firebase_auth: ^4.17.9
-  google_sign_in: ^6.2.1
   flutter_riverpod: ^2.5.1
   uuid: ^4.3.3
   cloudinary_public: ^0.23.1

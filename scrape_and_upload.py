@@ -46,7 +46,7 @@ def crawl_home_only(url, driver):
 
 if __name__ == "__main__":
     chrome_options = Options()
-    # chrome_options.add_argument("--headless")  # در صورت نیاز فعال کن
+
     chrome_options.add_argument("--disable-gpu")
     chrome_options.add_argument("--no-sandbox")
     service = Service(ChromeDriverManager().install())
