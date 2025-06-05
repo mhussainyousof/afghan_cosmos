@@ -1,7 +1,6 @@
 import 'package:afghan_cosmos/firebase_options.dart';
 import 'package:afghan_cosmos/repo/auth_repo.dart';
 import 'package:afghan_cosmos/screens/home_screen.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
