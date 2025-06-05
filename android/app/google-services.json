@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "736443589610",
+    "project_id": "afghancosmos-efbfc",
+    "storage_bucket": "afghancosmos-efbfc.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:736443589610:android:185817c9c21b78994a8893",
+        "android_client_info": {
+          "package_name": "com.example.afghan_cosmos"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "736443589610-n9nr1ogc63uu5eocprd32efv6n1l6a7n.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCqkBzhAWLWoRoHq-yxJhh4-VjsAJh35F8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "736443589610-n9nr1ogc63uu5eocprd32efv6n1l6a7n.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "736443589610-grkt40m1ae9il26qal28mvvui2nkhs0l.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.afghanCosmos"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
