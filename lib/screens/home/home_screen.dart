@@ -77,6 +77,7 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
               ),
               
               Container(
+                margin: EdgeInsets.symmetric(horizontal: 10),
                 padding: const EdgeInsets.symmetric(
                   horizontal: 16,
                   vertical: 3,
@@ -93,14 +94,17 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
                       child: TextField(
                         maxLines: null,
                         keyboardType: TextInputType.multiline,
+                        style: TextStyle(color: Colors.black87),
                         controller: _messageController,
                         decoration: InputDecoration(
                           border: InputBorder.none,
-                          hintText: 'Waiting for your question',
+                          hintText: 'Ask Afghan Cosmos ...',
                           hintStyle: TextStyle(
-                            color: Colors.grey.shade500,
+                            fontSize: 14,
+                            color: Colors.grey.shade400,
                             fontStyle: FontStyle.italic,
                           ),
+                         
                         ),
                       ),
                     ),
@@ -117,7 +121,7 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
                                   strokeWidth: 2,
                                 ),
                               )
-                              : const Icon(Iconsax.send_1),
+                              : const Icon(Iconsax.send_1, color: Colors.black,),
                     ),
                   ],
                 ),

@@ -13,8 +13,8 @@ class TTextFormFieldTheme {
     // filled: true,
     // fillColor: TColors.lightGrey,
 
-    prefixIconColor: TColors.darkGrey,
-    suffixIconColor: TColors.darkGrey,
+    prefixIconColor: Colors.grey.shade100,
+    suffixIconColor: Colors.grey.shade100,
 
     labelStyle: const TextStyle(
       fontSize: TSizes.fontSizeSm,
@@ -64,10 +64,10 @@ class TTextFormFieldTheme {
     contentPadding: const EdgeInsets.symmetric(vertical: 12, horizontal: 16),
 
     filled: true,
-    fillColor: TColors.darkerGrey,
+    fillColor: Colors.grey.shade100,
 
-    prefixIconColor: TColors.white,
-    suffixIconColor: TColors.white,
+    prefixIconColor: Colors.grey.shade100,
+    suffixIconColor: Colors.grey.shade100,
 
     labelStyle: const TextStyle(
       fontSize: TSizes.fontSizeSm,
