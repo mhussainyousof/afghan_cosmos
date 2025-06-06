@@ -1,7 +1,9 @@
 import 'package:afghan_cosmos/helper/persion_fuction.dart';
+import 'package:afghan_cosmos/theme/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_markdown/flutter_markdown.dart';
+import 'package:iconsax/iconsax.dart';
 
 import '/models/message.dart';
 
@@ -17,61 +19,54 @@ class MessageTile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-   
-    final textColor = isOutgoing ? Colors.black87 : Colors.black87;
+    final textColor = isOutgoing ? TColors.textWhite : TColors.textPrimary;
+
     final align = isOutgoing ? Alignment.centerRight : Alignment.centerLeft;
 
-     final avatar = isOutgoing
-        ? const CircleAvatar(
-            radius: 16,
-            backgroundColor: Colors.white,
-            child: Icon(Icons.person, color: Colors.blue),
-          )
-        : const CircleAvatar(
-            radius: 18,
-            backgroundImage: AssetImage('assets/icons/logo.png'),
-            backgroundColor: Colors.transparent,
-          );
+    final avatar =
+        isOutgoing
+            ? const CircleAvatar(
+              radius: 16,
+              backgroundColor: Colors.white,
+              child: Icon(Iconsax.user, color: Colors.blue),
+            )
+            : const CircleAvatar(
+              radius: 18,
+              backgroundImage: AssetImage('assets/icons/logo.png'),
+              backgroundColor: TColors.primaryBackground,
+            );
 
     return Align(
       alignment: align,
       child: Row(
-         mainAxisAlignment:
+        mainAxisAlignment:
             isOutgoing ? MainAxisAlignment.end : MainAxisAlignment.start,
-            crossAxisAlignment: CrossAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-
-          if (!isOutgoing) avatar, 
-      if (!isOutgoing) const SizedBox(width: 4),
+          if (!isOutgoing) avatar,
+          if (!isOutgoing) const SizedBox(width: 4),
 
           Flexible(
-
             child: Container(
-              constraints:
-                  BoxConstraints(maxWidth: MediaQuery.of(context).size.width * 0.75),
-              margin: const EdgeInsets.symmetric(vertical: 6,),
+              constraints: BoxConstraints(
+                maxWidth: MediaQuery.of(context).size.width * 0.75,
+              ),
+              margin: const EdgeInsets.symmetric(vertical: 6),
               padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 16),
               decoration: BoxDecoration(
-                gradient: isOutgoing
-                    ? const LinearGradient(
-                        colors: [
-                          Color.fromARGB(
-                              255, 177, 201, 253), // deep blue (Google blue variant)
-                          Color.fromARGB(
-                              255, 126, 255, 238), // teal/greenish (modern AI vibe)
-                        ],
-                        end: Alignment.topLeft,
-                        begin: Alignment.bottomRight,
-                      )
-                    : const LinearGradient(
-                        colors: [
-                          Colors.white,
-                          Colors.white,
-                        ],
-                        begin: Alignment.topLeft,
-                        end: Alignment.bottomRight,
-                      ),
-            
+                gradient:
+                    isOutgoing
+                        ? LinearGradient(
+                          colors: [TColors.primary, TColors.accent],
+                          begin: Alignment.bottomRight,
+                          end: Alignment.topLeft,
+                        )
+                        : const LinearGradient(
+                          colors: [
+                            TColors.lightContainer,
+                            TColors.lightContainer,
+                          ],
+                        ),
                 borderRadius: BorderRadius.only(
                   topLeft: Radius.circular(isOutgoing ? 16 : 0),
                   topRight: Radius.circular(isOutgoing ? 0 : 16),
@@ -80,24 +75,27 @@ class MessageTile extends StatelessWidget {
                 ),
                 boxShadow: [
                   BoxShadow(
-                    blurStyle: BlurStyle.outer,
-                    color: isOutgoing ? Colors.deepOrange : Colors.green,
                     blurRadius: 3,
-                    offset: isOutgoing ? const Offset(0, 0) : const Offset(-1, -1),
+                    color: Colors.black.withOpacity(0.05),
+                    offset: const Offset(0, 1),
                   ),
                 ],
               ),
+
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Directionality(
-                    textDirection: isPersianText(message.message)
-                        ? TextDirection.rtl
-                        : TextDirection.ltr,
+                    textDirection:
+                        isPersianText(message.message)
+                            ? TextDirection.rtl
+                            : TextDirection.ltr,
                     child: GestureDetector(
-                      onLongPress: (){
+                      onLongPress: () {
                         Clipboard.setData(ClipboardData(text: message.message));
-                        ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text('Text Copied')));
+                        ScaffoldMessenger.of(context).showSnackBar(
+                          const SnackBar(content: Text('Text Copied')),
+                        );
                       },
                       child: MarkdownBody(
                         data: message.message,
@@ -126,13 +124,12 @@ class MessageTile extends StatelessWidget {
                       ),
                     ),
                   ),
-                  
                 ],
               ),
             ),
           ),
-           if (isOutgoing) const SizedBox(width: 4),
-          if (isOutgoing) avatar, 
+          if (isOutgoing) const SizedBox(width: 4),
+          if (isOutgoing) avatar,
         ],
       ),
     );
