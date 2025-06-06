@@ -1,6 +1,5 @@
 import 'package:afghan_cosmos/theme/colors.dart';
 import 'package:afghan_cosmos/theme/widget_themes/appbar_theme.dart';
-import 'package:afghan_cosmos/theme/widget_themes/bottom_navigation.dart';
 import 'package:afghan_cosmos/theme/widget_themes/bottom_sheet_theme.dart';
 import 'package:afghan_cosmos/theme/widget_themes/chip_theme.dart';
 import 'package:afghan_cosmos/theme/widget_themes/elevated_button_theme.dart';
@@ -27,8 +26,8 @@ class TAppTheme {
     bottomSheetTheme: TBottomSheetTheme.lightBottomSheetTheme,
     elevatedButtonTheme: TElevatedButtonTheme.lightElevatedButtonTheme,
     outlinedButtonTheme: TOutlinedButtonTheme.lightOutlinedButtonTheme,
-    inputDecorationTheme: TTextFormFieldTheme.lightInputDecorationTheme,
-    navigationBarTheme: TNavigationBarTheme.lightNavigationBarTheme
+    // inputDecorationTheme: TTextFormFieldTheme.lightInputDecorationTheme,
+    // navigationBarTheme: TNavigationBarTheme.lightNavigationBarTheme
   );
 
   static ThemeData darkTheme = ThemeData(
@@ -45,7 +44,7 @@ class TAppTheme {
     bottomSheetTheme: TBottomSheetTheme.darkBottomSheetTheme,
     elevatedButtonTheme: TElevatedButtonTheme.darkElevatedButtonTheme,
     outlinedButtonTheme: TOutlinedButtonTheme.darkOutlinedButtonTheme,
-    inputDecorationTheme: TTextFormFieldTheme.darkInputDecorationTheme,
-    navigationBarTheme: TNavigationBarTheme.darkNavigationBarTheme
+    // inputDecorationTheme: TTextFormFieldTheme.darkInputDecorationTheme,
+    // navigationBarTheme: TNavigationBarTheme.darkNavigationBarTheme
   );
 }

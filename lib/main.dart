@@ -1,4 +1,5 @@
 import 'package:afghan_cosmos/firebase_options.dart';
+import 'package:afghan_cosmos/provider/them_mode.dart';
 import 'package:afghan_cosmos/repo/auth_repo.dart';
 import 'package:afghan_cosmos/screens/main_screen.dart';
 import 'package:afghan_cosmos/theme/theme.dart';
@@ -10,7 +11,7 @@ import 'package:google_fonts/google_fonts.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  
+
   await dotenv.load(fileName: ".env");
   await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
 
@@ -20,17 +21,26 @@ void main() async {
 }
 
 //! main page
-class MyApp extends StatelessWidget {
+class MyApp extends ConsumerWidget {
   const MyApp({super.key});
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
+    final themeMode = ref.watch(themeModeProvider);
     return MaterialApp(
       theme: TAppTheme.lightTheme,
       darkTheme: TAppTheme.darkTheme,
-      themeMode: ThemeMode.system,
+      themeMode: themeMode,
       debugShowCheckedModeBanner: false,
-      home: MainScreen(),
+      home: AnimatedTheme(
+        data:
+            themeMode == ThemeMode.light
+                ? TAppTheme.lightTheme
+                : TAppTheme.darkTheme,
+        duration: const Duration(milliseconds: 500),
+
+        child: MainScreen(),
+      ),
     );
   }
 }
