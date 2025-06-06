@@ -1,5 +1,7 @@
 import 'package:afghan_cosmos/helper/persion_fuction.dart';
 import 'package:afghan_cosmos/utils/theme/colors.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_markdown/flutter_markdown.dart';
@@ -91,12 +93,20 @@ class MessageTile extends StatelessWidget {
                             ? TextDirection.rtl
                             : TextDirection.ltr,
                     child: GestureDetector(
-                      onLongPress: () {
-                        Clipboard.setData(ClipboardData(text: message.message));
+                      onLongPress: () async {
+                        final userId = FirebaseAuth.instance.currentUser!.uid;
+                        await FirebaseFirestore.instance
+                            .collection('conversations')
+                            .doc(userId)
+                            .collection('messages')
+                            .doc(message.id)
+                            .delete();
+
                         ScaffoldMessenger.of(context).showSnackBar(
-                          const SnackBar(content: Text('Text Copied')),
+                          const SnackBar(content: Text('Message deleted')),
                         );
                       },
+
                       child: MarkdownBody(
                         data: message.message,
                         styleSheet: MarkdownStyleSheet(
