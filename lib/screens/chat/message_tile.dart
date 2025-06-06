@@ -1,4 +1,4 @@
-import 'package:afghan_cosmos/helper/persion_fuction.dart';
+import 'package:afghan_cosmos/utils/helper/persion_fuction.dart';
 import 'package:afghan_cosmos/utils/theme/colors.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -101,10 +101,6 @@ class MessageTile extends StatelessWidget {
                             .collection('messages')
                             .doc(message.id)
                             .delete();
-
-                        ScaffoldMessenger.of(context).showSnackBar(
-                          const SnackBar(content: Text('Message deleted')),
-                        );
                       },
 
                       child: MarkdownBody(

@@ -1,6 +1,6 @@
 import 'package:afghan_cosmos/provider/them_mode.dart';
 import 'package:afghan_cosmos/screens/chat/chat_screen.dart';
-import 'package:afghan_cosmos/screens/menu/menu_data.dart';
+import 'package:afghan_cosmos/screens/drawer/drawer_data.dart';
 import 'package:afghan_cosmos/utils/theme/colors.dart';
 import 'package:afghan_cosmos/widgets/animated_text.dart';
 import 'package:flutter/material.dart';
@@ -13,73 +13,86 @@ class HomeScreen extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     return Scaffold(
-      floatingActionButton: FloatingActionButton(
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(30)),
-        backgroundColor: TColors.primary,
-        // child: Icon(FontAwesomeIcons.headset),
-        child: Icon(Icons.support_agent, size: 35, color: Colors.white,),
+      floatingActionButton: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 50),
+        child: FloatingActionButton(
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(30),
+          ),
+          backgroundColor: TColors.primary,
+          // child: Icon(FontAwesomeIcons.headset),
+          child: Icon(Icons.support_agent, size: 35, color: Colors.white),
 
-        onPressed: () {
-          showModalBottomSheet(
-            context: context,
-            isScrollControlled: true,
-            backgroundColor: Colors.transparent,
-            builder: (context) {
-              return DraggableScrollableSheet(
-
-                initialChildSize: 0.95,
-                minChildSize: 0.5,
-                maxChildSize: 0.95,
-                expand: false,
-                builder: (_, controller) {
-                  return Container(
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.only(
-                        topLeft: Radius.circular(24),
-                        topRight: Radius.circular(24),
-                      ),
-                      color:
-                          Theme.of(context).brightness == Brightness.dark
-                              ? Colors.grey.shade900.withOpacity(0.70)
-                              : Colors.white.withOpacity(0.85),
-                      border: Border.all(
+          onPressed: () {
+            showModalBottomSheet(
+              context: context,
+              isScrollControlled: true,
+              backgroundColor: Colors.transparent,
+              builder: (context) {
+                return DraggableScrollableSheet(
+                  initialChildSize: 0.95,
+                  minChildSize: 0.5,
+                  maxChildSize: 0.95,
+                  expand: false,
+                  builder: (_, controller) {
+                    return Container(
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.only(
+                          topLeft: Radius.circular(24),
+                          topRight: Radius.circular(24),
+                        ),
                         color:
                             Theme.of(context).brightness == Brightness.dark
-                                ? Colors.white24
-                                : Colors.black26,
+                                ? Colors.grey.shade900.withOpacity(0.70)
+                                : Colors.white.withOpacity(0.85),
+                        border: Border.all(
+                          color:
+                              Theme.of(context).brightness == Brightness.dark
+                                  ? Colors.white24
+                                  : Colors.black26,
+                        ),
                       ),
-                    
-                    ),
-                    child: ClipRRect(
-                      borderRadius: BorderRadius.only(
-                        topLeft: Radius.circular(24),
-                        topRight: Radius.circular(24),
-                      ),
-                      child: Column(
-                        children: [
-                          Align(
-                            alignment: Alignment.topRight,
-                            child: IconButton(
-                              icon: Icon(
-                                Iconsax.close_circle,
-                                color: TColors.grey,
+                      child: ClipRRect(
+                        borderRadius: BorderRadius.only(
+                          topLeft: Radius.circular(24),
+                          topRight: Radius.circular(24),
+                        ),
+                        child: Column(
+                          children: [
+                            Align(
+                              alignment: Alignment.topRight,
+                              child: IconButton(
+                                icon: Icon(
+                                  Iconsax.close_circle,
+                                  color: const Color.fromARGB(
+                                    255,
+                                    76,
+                                    175,
+                                    245,
+                                  ),
+                                ),
+                                onPressed: () => Navigator.of(context).pop(),
                               ),
-                              onPressed: () => Navigator.of(context).pop(),
                             ),
-                          ),
-                          Expanded(child: ChatScreen(scrollController: controller)),
-                        ],
+                            Expanded(
+                              child: ChatScreen(scrollController: controller),
+                            ),
+                          ],
+                        ),
                       ),
-                    ),
-                  );
-                },
-              );
-            },
-          );
-        },
+                    );
+                  },
+                );
+              },
+            );
+          },
+        ),
       ),
       appBar: AppBar(
-        title: Text('AFGHAN COSMOS'),
+        title: Text(
+          'AFGHAN COSMOS',
+          style: TextStyle(fontSize: 14, fontWeight: FontWeight.w600),
+        ),
         actions: [
           Row(
             children: [
@@ -93,7 +106,6 @@ class HomeScreen extends ConsumerWidget {
       ),
       drawer: Drawer(
         child: ListView(
-          
           children: [
             DrawerHeader(
               margin: EdgeInsets.zero,
@@ -155,12 +167,11 @@ class HomeScreen extends ConsumerWidget {
                 'Your Trusted Partner in',
                 style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
               ),
-              
-               FancyAnimatedText(),
-               
-              
+
+              FancyAnimatedText(),
+
               SizedBox(height: 20),
-        
+
               Center(child: Image.asset('assets/icons/logo.png', height: 200)),
             ],
           ),

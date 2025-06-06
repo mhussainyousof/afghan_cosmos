@@ -77,7 +77,7 @@ class _HomeScreenState extends ConsumerState<ChatScreen> {
               ),
               
               Container(
-                margin: EdgeInsets.symmetric(horizontal: 10),
+                margin: EdgeInsets.symmetric(horizontal: 10, vertical: 8),
                 padding: const EdgeInsets.symmetric(
                   horizontal: 16,
                   vertical: 3,
