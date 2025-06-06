@@ -1,5 +1,5 @@
-import 'package:afghan_cosmos/theme/colors.dart';
-import 'package:afghan_cosmos/theme/sizes.dart';
+import 'package:afghan_cosmos/utils/theme/colors.dart';
+import 'package:afghan_cosmos/utils/theme/sizes.dart';
 import 'package:flutter/material.dart';
 
 

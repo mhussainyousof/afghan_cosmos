@@ -1,5 +1,5 @@
 import 'package:afghan_cosmos/provider/get_all_messages_provider.dart';
-import 'package:afghan_cosmos/screens/home/message_tile.dart';
+import 'package:afghan_cosmos/screens/chat/message_tile.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 

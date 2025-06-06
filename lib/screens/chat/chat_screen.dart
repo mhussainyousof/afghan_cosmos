@@ -1,5 +1,5 @@
 import 'package:afghan_cosmos/provider/providers.dart';
-import 'package:afghan_cosmos/screens/home/widget_messages_list.dart';
+import 'package:afghan_cosmos/screens/chat/widget_messages_list.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -8,17 +8,17 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:iconsax/iconsax.dart';
 
 
-class HomeScreen extends ConsumerStatefulWidget {
+class ChatScreen extends ConsumerStatefulWidget {
   final ScrollController scrollController;
-  const HomeScreen({
+  const ChatScreen({
     required this.scrollController,
     super.key});
 
   @override
-  ConsumerState<HomeScreen> createState() => _HomeScreenState();
+  ConsumerState<ChatScreen> createState() => _HomeScreenState();
 }
 
-class _HomeScreenState extends ConsumerState<HomeScreen> {
+class _HomeScreenState extends ConsumerState<ChatScreen> {
 
 
   late final TextEditingController _messageController;

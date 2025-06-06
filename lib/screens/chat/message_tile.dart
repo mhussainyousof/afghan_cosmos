@@ -1,5 +1,5 @@
 import 'package:afghan_cosmos/helper/persion_fuction.dart';
-import 'package:afghan_cosmos/theme/colors.dart';
+import 'package:afghan_cosmos/utils/theme/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_markdown/flutter_markdown.dart';

@@ -1,13 +1,12 @@
 import 'package:afghan_cosmos/firebase_options.dart';
 import 'package:afghan_cosmos/provider/them_mode.dart';
 import 'package:afghan_cosmos/repo/auth_repo.dart';
-import 'package:afghan_cosmos/screens/main_screen.dart';
-import 'package:afghan_cosmos/theme/theme.dart';
+import 'package:afghan_cosmos/screens/home_screen.dart';
+import 'package:afghan_cosmos/utils/theme/theme.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -39,7 +38,7 @@ class MyApp extends ConsumerWidget {
                 : TAppTheme.darkTheme,
         duration: const Duration(milliseconds: 500),
 
-        child: MainScreen(),
+        child: HomeScreen(),
       ),
     );
   }

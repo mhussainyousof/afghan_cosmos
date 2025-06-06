@@ -1,17 +1,14 @@
-import 'dart:ui';
-
 import 'package:afghan_cosmos/provider/them_mode.dart';
-import 'package:afghan_cosmos/screens/home/home_screen.dart';
+import 'package:afghan_cosmos/screens/chat/chat_screen.dart';
 import 'package:afghan_cosmos/screens/menu/menu_data.dart';
-import 'package:afghan_cosmos/theme/colors.dart';
+import 'package:afghan_cosmos/utils/theme/colors.dart';
 import 'package:afghan_cosmos/widgets/animated_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:iconsax/iconsax.dart';
 
-class MainScreen extends ConsumerWidget {
-  const MainScreen({super.key});
+class HomeScreen extends ConsumerWidget {
+  const HomeScreen({super.key});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -29,7 +26,7 @@ class MainScreen extends ConsumerWidget {
             backgroundColor: Colors.transparent,
             builder: (context) {
               return DraggableScrollableSheet(
-                
+
                 initialChildSize: 0.95,
                 minChildSize: 0.5,
                 maxChildSize: 0.95,
@@ -70,7 +67,7 @@ class MainScreen extends ConsumerWidget {
                               onPressed: () => Navigator.of(context).pop(),
                             ),
                           ),
-                          Expanded(child: HomeScreen(scrollController: controller)),
+                          Expanded(child: ChatScreen(scrollController: controller)),
                         ],
                       ),
                     ),

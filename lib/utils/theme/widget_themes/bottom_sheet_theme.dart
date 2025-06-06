@@ -1,4 +1,4 @@
-import 'package:afghan_cosmos/theme/colors.dart';
+import 'package:afghan_cosmos/utils/theme/colors.dart';
 import 'package:flutter/material.dart';
 
 
