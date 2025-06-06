@@ -9,6 +9,7 @@ import '/models/message.dart';
 class ChatRepository {
   final _auth = FirebaseAuth.instance;
   final _firestore = FirebaseFirestore.instance;
+  
 
   final String cloudName;
   final String uploadPreset;

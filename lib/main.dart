@@ -13,7 +13,7 @@ void main() async {
 
   await dotenv.load(fileName: ".env");
   await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
-
+    
   final auth = AuthRepository();
   await auth.signInAnonymously();
   runApp(const ProviderScope(child: MyApp()));
