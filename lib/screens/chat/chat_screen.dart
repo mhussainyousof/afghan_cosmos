@@ -24,7 +24,7 @@ class _HomeScreenState extends ConsumerState<ChatScreen> {
   late final TextEditingController _messageController;
   final apiKey = dotenv.env['API_KEY'] ?? '';
   late final ScrollController _scrollController;
-  bool _showScrollToBottomBtn = false;
+  final bool _showScrollToBottomBtn = false;
   bool _isSending = false;
 
   @override
@@ -32,17 +32,23 @@ class _HomeScreenState extends ConsumerState<ChatScreen> {
     _messageController = TextEditingController();
     _scrollController = ScrollController();
     SystemChrome.setEnabledSystemUIMode(SystemUiMode.edgeToEdge);
-    _scrollController.addListener(() {
-      final atBottom =
-          _scrollController.offset <=
-          _scrollController.position.minScrollExtent + 20;
 
-      if (atBottom && _showScrollToBottomBtn) {
-        setState(() => _showScrollToBottomBtn = false);
-      } else if (!atBottom && !_showScrollToBottomBtn) {
-        setState(() => _showScrollToBottomBtn = true);
-      }
-    });
+
+    // _scrollController.addListener(() {
+    //   final atBottom =
+    //       _scrollController.offset <=
+    //       _scrollController.position.minScrollExtent + 20;
+
+    //   if (atBottom && _showScrollToBottomBtn) {
+    //     setState(() => _showScrollToBottomBtn = false);
+    //   } else if (!atBottom && !_showScrollToBottomBtn) {
+    //     setState(() => _showScrollToBottomBtn = true);
+    //   }
+    // });
+
+      WidgetsBinding.instance.addPostFrameCallback((_) {
+    ref.read(chatProvider).sendDefaultWelcomeMessageIfNeeded();
+  });
 
     super.initState();
   }

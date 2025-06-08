@@ -28,8 +28,7 @@ dependencies:
   html: ^0.15.6
   http: ^1.4.0
   logger: ^2.5.0
-  google_fonts: ^6.2.1
-  
+  google_fonts: ^6.2.1  
   animated_text_kit: ^4.2.3
   flutter_launcher_icons: ^0.14.3
 dev_dependencies:
