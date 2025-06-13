@@ -20,7 +20,6 @@ class HomeScreen extends ConsumerWidget {
             borderRadius: BorderRadius.circular(30),
           ),
           backgroundColor: TColors.primary,
-          // child: Icon(FontAwesomeIcons.headset),
           child: Icon(Icons.support_agent, size: 35, color: Colors.white),
 
           onPressed: () {
